@@ -60,21 +60,16 @@ int main() {
 
 		// Add the controller to the model
 		osimModel.addController(controller);
+		
+		// Create a ligament
+		Ligament* ligament = new Ligament("knee_ligament", *thigh, Vec3(0, 0, 0), *shank, Vec3(0, 0, 0));
+		ligament->setRestingLength(0.2); // The length of the ligament when it is not stretched
+		ligament->setStiffness(10.0); // The stiffness of the ligament
+		ligament->setStrainAtOneNormForce(0.04); // The strain when the ligament force equals the body weight
 
-		// Create a function that returns the desired angle as a function of time
-		Function* desiredAngleFunction = new Constant(1.0);
+		// Add the ligament to the model
+		osimModel.addForce(ligament);
 
-		// Create a PD controller
-		PDController* pdController = new PDController();
-		pdController->set_desired_function(desiredAngleFunction);
-		pdController->set_kp(100.0); // proportional gain
-		pdController->set_kv(10.0);  // derivative gain
-
-		// Add the controller to the muscle
-		pdController->addActuator(*muscle);
-
-		// Add the controller to the model
-		osimModel.addController(pdController);
 
 
 		// Initialize the system and state
