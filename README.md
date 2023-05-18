@@ -7,4 +7,6 @@ This repository contains code used in my final year project 'Optimal Trajectory 
 
 **Control Systems** contains four different control strategies for the torque actuator and the torque actuator initialisation itself. The control strategies are: bang-bang, sinusoidal feed-forward, proportional-derivative, and proportional-derivative with added variability/error to add realism.
 
-**PD Controller** contains a header, a corresponding body file and the cmake.txt for defining a PD Controller for use in external functions. It is to be applied when rebuilding the OpenSim source code. There is also a test case for testing correct initialisation.
+**PD Controller** contains a header and a corresponding body file for defining a PD Controller for use in external functions. It is to be applied when rebuilding the OpenSim source code. There is also a test case for testing correct initialisation.
+
+**External Functions** contains various external functions for use in Antoine Falisse's 3dPredictSim. They lay the foundation for development of PD Controlled torque actuator functionality.
